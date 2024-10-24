@@ -11,6 +11,5 @@ services:
     volumes:
       - ${POD_DATA_WORK}:/work
       - ${POD_DATA_ROOT}:/root
-      - /var/run/docker.sock:/var/run/docker.sock
       - /app:/app
     
