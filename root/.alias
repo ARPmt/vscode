@@ -1,0 +1,47 @@
+#!/bin/sh
+
+## path
+case ":${PATH}:" in
+    *:"/build/bin":*)
+        ;;
+    *)
+        # Prepending path in case a system-installed rustc needs to be overridden
+        export PATH="/build/bin:$PATH"
+        ;;
+esac
+export DISABLE_AUTO_UPDATE=true
+case ":${PATH}:" in
+    *:"/work/bin":*)
+        ;;
+    *)
+        # Prepending path in case a system-installed rustc needs to be overridden
+        export PATH="/work/bin:$PATH"
+        ;;
+esac
+
+function dex-fn {
+    docker exec -it "$@"
+}
+function dsr-fn {
+    docker rm -f "$@"
+}
+function cw-fn {
+    cd /app/$1
+}
+## docker
+alias de=dex-fn
+
+alias ds="docker ps"
+alias dse="docker ps -af status=exited"
+
+alias dl="docker images"
+
+alias dr=dsr-fn
+alias dri="docker rmi "
+
+alias dci="docker images -qf dangling=true | xargs docker rmi"
+alias dc="docker-compose "
+
+## tools
+alias aa="./aa "
+alias cw=cw-fn

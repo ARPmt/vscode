@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "0.0.0.0",
+  "password": false,
+  "pid": 26,
+  "port": 8888,
+  "root_dir": "/app",
+  "secure": false,
+  "sock": "",
+  "token": "",
+  "url": "http://station:8888/",
+  "version": "2.14.2"
+}
