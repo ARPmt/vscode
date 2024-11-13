@@ -9,7 +9,7 @@ services:
     ports:
       - "8001:8080"
     volumes:
-      - ${POD_DATA_WORK}:/work
+      - /work:/work
       - ${POD_DATA_ROOT}:/root
       - /app:/app
     
